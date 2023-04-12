@@ -21,15 +21,25 @@ public class PlayerMovement : MonoBehaviour
     {
     }
 
-    private void Flip()
+    //private void Flip()
+    //{
+    //    if(facingRight && horizontal < 0f || !facingRight && horizontal > 0f)
+    //    {
+    //        facingRight = !facingRight;
+    //        Vector3 localScale = transform.localScale;
+    //        localScale.x *= -1f;
+    //        transform.localScale = localScale;
+    //    }
+    //}
+
+    private int HitboxCheck(bool right)
     {
-        if(facingRight && horizontal < 0f || !facingRight && horizontal > 0f)
+        Vector3 pos = transform.position;
+        if(right)
         {
-            facingRight = !facingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            
         }
+        return 0;
     }
 
     public void Left()

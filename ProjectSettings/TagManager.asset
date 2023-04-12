@@ -47,3 +47,6 @@ TagManager:
   - name: dirt
     uniqueID: 458197471
     locked: 0
+  - name: playerdots
+    uniqueID: 2817599467
+    locked: 0
