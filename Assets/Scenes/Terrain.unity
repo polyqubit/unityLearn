@@ -674,6 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dirt: {fileID: 5945283409270856463, guid: 4042205cb2030e64d91abdb3d098de41, type: 3}
   grass: {fileID: 5945283409270856463, guid: 3e60e45a2c306bb42b1c2a90203a963e, type: 3}
+  ant: {fileID: 3077162021674837480, guid: 08d84f8bf3801c846af3b78eaa1f9fd1, type: 3}
   width: 50
   height: 20
 --- !u!1 &957827530
