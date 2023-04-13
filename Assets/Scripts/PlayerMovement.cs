@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float horizontal, speed;
-    private bool facingRight = true;
-
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private bool ar, al, br, bl, cr, cl;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +32,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 pos = transform.position;
         if(right)
         {
-            
+            if(cr)
+            {
+
+            }
         }
         return 0;
     }
@@ -45,5 +43,31 @@ public class PlayerMovement : MonoBehaviour
     public void Left()
     {
         // left movement
+    }
+
+    public void SetColliderState(int n, bool val)
+    {
+        // goofyahh
+        switch (n)
+        {
+            case 0:
+                ar = val;
+                break;
+            case 1:
+                al = val;
+                break;
+            case 2:
+                br = val;
+                break;
+            case 3:
+                bl = val;
+                break;
+            case 4:
+                cr = val;
+                break;
+            case 5:
+                cl = val;
+                break;
+        }
     }
 }

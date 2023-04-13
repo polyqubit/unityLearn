@@ -8,7 +8,7 @@ using UnityEngine;
 // can draw them in its own Update()
 public class GenerateGroundTiles : MonoBehaviour
 {
-    public GameObject dirt, grass;
+    public GameObject dirt, grass, ant;
     public int width, height;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,7 @@ public class GenerateGroundTiles : MonoBehaviour
             }
             SpawnObject(grass, x, -0.4f);
         }
+        Instantiate(ant, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class GenerateGroundTiles : MonoBehaviour
     void SpawnObject(GameObject obj, float x, float y)
     {
         obj = Instantiate(obj, new Vector3(x, y, 0), Quaternion.identity);
+        obj.tag = "ground";
         obj.transform.parent = transform;
     }
 }
