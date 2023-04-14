@@ -45,6 +45,12 @@ public class PlayerMovement : MonoBehaviour
         // left movement
     }
 
+    public void Right()
+    {
+        Vector3 pos = transform.position;
+        transform.position.Set(pos.x + 1, pos.y, pos.z);
+    }
+
     public void SetColliderState(int n, bool val)
     {
         Debug.Log("a");
