@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private bool ar, al, br, bl, cr, cl;
+    [SerializeField] bool ar, al, br, bl, cr, cl;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetColliderState(int n, bool val)
     {
+        Debug.Log("a");
         // goofyahh
         switch (n)
         {

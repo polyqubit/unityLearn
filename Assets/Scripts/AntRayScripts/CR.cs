@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CR : MonoBehaviour
 {
+    bool active = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +17,11 @@ public class CR : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "ground")
+        if (collision.gameObject.tag == "ground")
         {
+            Debug.Log("transform");
             transform.parent.GetComponent<PlayerMovement>().SetColliderState(4, true);
         }
     }
