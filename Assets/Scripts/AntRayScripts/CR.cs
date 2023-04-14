@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CR : MonoBehaviour
 {
-    bool active = false;
+    //bool active = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,17 +16,16 @@ public class CR : MonoBehaviour
     {
         
     }
-
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
+        Debug.Log("transform");
         if (collision.gameObject.tag == "ground")
         {
-            Debug.Log("transform");
             transform.parent.GetComponent<PlayerMovement>().SetColliderState(4, true);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "ground")
         {
