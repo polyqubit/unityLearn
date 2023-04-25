@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] bool ar, al, br, bl, cr, cl;
+    bool ar, al, br, bl, cr, cl;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 pos = transform.position;
         transform.position.Set(pos.x + 1, pos.y, pos.z);
+    }
+
+    private void SetBoolState() 
+    {
+        Collider2D[] coll = Physics2D.OverlapCircleAll(transform.position, 1);
     }
 
     public void SetColliderState(int n, bool val)
