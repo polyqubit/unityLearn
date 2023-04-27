@@ -51,6 +51,23 @@ public class PlayerMovement : MonoBehaviour
                     transform.position = new Vector3(pos.x, pos.y + direction);
                 }
             }
+            else
+            {
+                if (!right && (Physics2D.OverlapCircle(new Vector2(pos.x - 1, pos.y + 0.5f), 0.2f, LayerMask.GetMask("ground")) is null))
+                {
+                    transform.position = new Vector3(pos.x - 1, pos.y + 0.5f);
+                    climb = false;
+                }
+                else if (right && (Physics2D.OverlapCircle(new Vector2(pos.x, pos.y - 1.5f), 0.2f, LayerMask.GetMask("ground")) is not null))
+                {
+                    transform.position = new Vector3(pos.x, pos.y - 0.5f);
+                    climb = false;
+                }
+                else
+                {
+                    transform.position = new Vector3(pos.x, pos.y - direction);
+                }
+            }
         }
         else if (Physics2D.OverlapCircle(new Vector2(pos.x + direction, pos.y), 0.2f, LayerMask.GetMask("ground")) is not null) //b, same y
         {
@@ -70,6 +87,18 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = new Vector3(pos.x + direction, pos.y - 1);
         }
-        else { Debug.Log("hole!"); }
+        else
+        {
+            climb = true;
+            side = !right;
+            if(side)
+            {
+                transform.position = new Vector3(pos.x - 1, pos.y - 0.5f);
+            }
+            else
+            {
+                transform.position = new Vector3(pos.x + 1, pos.y - 0.5f);
+            }
+        }
     }
 }
