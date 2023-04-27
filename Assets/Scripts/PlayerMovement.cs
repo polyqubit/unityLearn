@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         //Vector3 pos = transform.position;
         //transform.position.Set(pos.x + 1, pos.y, pos.z);
         Debug.Log("button");
-        Collider2D[] coll = Physics2D.OverlapCircleAll(transform.position, 1);
+        Collider2D[] coll = Physics2D.OverlapCircleAll(transform.position, 0.2f, LayerMask.GetMask("ground"));
         for (int i = 0; i < coll.Length; i++)
         {
             Debug.Log(coll[i]);
