@@ -21,10 +21,10 @@ public class GenerateGroundTiles : MonoBehaviour
             }
             SpawnObject(grass, x, 0);
         }
-        SpawnObject(grass, width / 2, -1);
-        SpawnObject(grass, width / 2, 0);
-        SpawnObject(grass, width / 2, 1);
-        SpawnObject(grass, width / 2, 2);
+        //SpawnObject(grass, width / 2, -1);
+        //SpawnObject(grass, width / 2, 0);
+        //SpawnObject(grass, width / 2, 1);
+        //SpawnObject(grass, width / 2, 2);
     }
 
     // Update is called once per frame
