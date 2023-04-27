@@ -37,3 +37,10 @@ public class GenerateGroundTiles : MonoBehaviour
         obj.transform.parent = transform;
     }
 }
+
+
+
+/* terrain gen
+ * idea 1: sin(x / a) -> generates grass blocks with dirt extending (in?)finitely under
+ * [idea 2]: random walk generation -> starting from (0, 0), grass blocks may be placed y-1, y, or y+1 from previous(recursive?)
+*/
