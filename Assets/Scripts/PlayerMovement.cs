@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private bool ar, al, br, bl, cr, cl;
+    private bool climb;
     // Start is called before the first frame update
     void Start()
     {
