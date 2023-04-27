@@ -48,7 +48,14 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = new Vector3(pos.x, pos.y + direction);
+                    if (!right && (Physics2D.OverlapCircle(new Vector2(pos.x + 1, pos.y - 0.5f), 0.2f, LayerMask.GetMask("ground")) is not null))
+                    {
+                        transform.position = new Vector3(pos.x, pos.y - 1);
+                    }
+                    else if (right)
+                    {
+                        transform.position = new Vector3(pos.x, pos.y + 1);
+                    }
                 }
             }
             else
@@ -65,7 +72,14 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = new Vector3(pos.x, pos.y - direction);
+                    if (right && (Physics2D.OverlapCircle(new Vector2(pos.x - 1, pos.y - 0.5f), 0.2f, LayerMask.GetMask("ground")) is not null))
+                    {
+                        transform.position = new Vector3(pos.x, pos.y - 1);
+                    }
+                    else if (!right)
+                    {
+                        transform.position = new Vector3(pos.x, pos.y + 1);
+                    }
                 }
             }
         }
