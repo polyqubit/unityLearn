@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -47,13 +47,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void Right()
     {
-        Vector3 pos = transform.position;
-        transform.position.Set(pos.x + 1, pos.y, pos.z);
+        //Vector3 pos = transform.position;
+        //transform.position.Set(pos.x + 1, pos.y, pos.z);
+        Debug.Log("button");
+        Collider2D[] coll = Physics2D.OverlapCircleAll(transform.position, 1);
+        for (int i = 0; i < coll.Length; i++)
+        {
+            Debug.Log(coll[i]);
+        }
     }
 
     private void SetBoolState() 
     {
         Collider2D[] coll = Physics2D.OverlapCircleAll(transform.position, 1);
+        for(int i = 0; i < coll.Length; i++)
+        {
+            Debug.Log(coll[i]);
+        }
     }
 
     public void SetColliderState(int n, bool val)
