@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = new Vector3(0, 0.5f, 0);
     }
 
     // Update is called once per frame
@@ -16,80 +16,42 @@ public class PlayerMovement : MonoBehaviour
     {
     }
 
-    //private void Flip()
-    //{
-    //    if(facingRight && horizontal < 0f || !facingRight && horizontal > 0f)
-    //    {
-    //        facingRight = !facingRight;
-    //        Vector3 localScale = transform.localScale;
-    //        localScale.x *= -1f;
-    //        transform.localScale = localScale;
-    //    }
-    //}
-
-    private int HitboxCheck(bool right)
-    {
-        Vector3 pos = transform.position;
-        if(right)
-        {
-            if(cr)
-            {
-
-            }
-        }
-        return 0;
-    }
-
     public void Left()
     {
-        // left movement
+        Move(false);
     }
 
     public void Right()
     {
-        //Vector3 pos = transform.position;
-        //transform.position.Set(pos.x + 1, pos.y, pos.z);
-        Debug.Log("button");
-        Collider2D[] coll = Physics2D.OverlapCircleAll(transform.position, 0.2f, LayerMask.GetMask("ground"));
-        for (int i = 0; i < coll.Length; i++)
-        {
-            Debug.Log(coll[i]);
-        }
+        Move(true);
     }
 
-    private void SetBoolState() 
+    private void Move(bool right)
     {
-        Collider2D[] coll = Physics2D.OverlapCircleAll(transform.position, 1);
-        for(int i = 0; i < coll.Length; i++)
+        Vector3 pos = transform.position;
+        if(right)
         {
-            Debug.Log(coll[i]);
+            if(Physics2D.OverlapCircle(new Vector2(pos.x + 1, pos.y), 0.2f, LayerMask.GetMask("ground")) is not null) //br
+            {
+                if(Physics2D.OverlapCircle(new Vector2(pos.x + 1, pos.y + 1), 0.2f, LayerMask.GetMask("ground")) is not null) //ar
+                {
+                    Debug.Log("wall!");
+                }
+                transform.position = new Vector3(pos.x + 1, pos.y + 1);
+            }
+            else if(Physics2D.OverlapCircle(new Vector2(pos.x + 1, pos.y - 1), 0.2f, LayerMask.GetMask("ground")) is not null) //cr
+            {
+                transform.position = new Vector3(pos.x + 1, pos.y);
+            }
+            else if (Physics2D.OverlapCircle(new Vector2(pos.x + 1, pos.y - 2), 0.2f, LayerMask.GetMask("ground")) is not null) //dr
+            {
+                transform.position = new Vector3(pos.x + 1, pos.y - 1);
+            }
+            else { Debug.Log("hole!"); }
+            return;
         }
-    }
-
-    public void SetColliderState(int n, bool val)
-    {
-        Debug.Log("a");
-        // goofyahh
-        switch (n)
-        {
-            case 0:
-                ar = val;
-                break;
-            case 1:
-                al = val;
-                break;
-            case 2:
-                br = val;
-                break;
-            case 3:
-                bl = val;
-                break;
-            case 4:
-                cr = val;
-                break;
-            case 5:
-                cl = val;
-                break;
-        }
+        al = Physics2D.OverlapCircle(new Vector2(pos.x - 1, pos.y + 1), 0.2f, LayerMask.GetMask("ground")) is not null;
+        bl = Physics2D.OverlapCircle(new Vector2(pos.x - 1, pos.y), 0.2f, LayerMask.GetMask("ground")) is not null;
+        cl = Physics2D.OverlapCircle(new Vector2(pos.x - 1, pos.y - 1), 0.2f, LayerMask.GetMask("ground")) is not null;
     }
 }
