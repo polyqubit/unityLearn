@@ -13,16 +13,16 @@ public class GenerateGroundTiles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int x = -width / 2; x < width / 2; x++)
-        {
-            for (int y = -1; y > -height; y--)
-            {
-                SpawnObject(dirt, x, y);
-            }
-            SpawnObject(grass, x, 0);
-        }
-        SpawnObject(grass, -5, 1);
-        SpawnObject(grass, -5, 2);
+        //for (int x = -width / 2; x < width / 2; x++)
+        //{
+        //    for (int y = -1; y > -height; y--)
+        //    {
+        //        SpawnObject(dirt, x, y);
+        //    }
+        //    SpawnObject(grass, x, 0);
+        //}
+        //SpawnObject(grass, -5, 1);
+        //SpawnObject(grass, -5, 2);
     }
 
     // Update is called once per frame
@@ -30,11 +30,26 @@ public class GenerateGroundTiles : MonoBehaviour
     {
         
     }
+
     void SpawnObject(GameObject obj, float x, float y)
     {
         obj = Instantiate(obj, new Vector3(x, y, 0), Quaternion.identity);
         obj.tag = "ground";
         obj.transform.parent = transform;
+    }
+
+    private void RandomWalk()
+    {
+        int y = 0;
+        for (int x = -width / 2; x < width / 2; x++)
+        {
+            SpawnObject(grass, x, y);
+        }
+    }
+
+    private int RandomPartOfRandomWalk()
+    {
+        return 0;
     }
 }
 
