@@ -13,16 +13,12 @@ public class GenerateGroundTiles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //for (int x = -width / 2; x < width / 2; x++)
-        //{
-        //    for (int y = -1; y > -height; y--)
-        //    {
-        //        SpawnObject(dirt, x, y);
-        //    }
-        //    SpawnObject(grass, x, 0);
-        //}
-        //SpawnObject(grass, -5, 1);
-        //SpawnObject(grass, -5, 2);
+        int y = 0;
+        for (int x = -width / 2; x < width / 2; x++)
+        {
+            y = RandomWalk(y);
+            SpawnObject(grass, x, y);
+        }
     }
 
     // Update is called once per frame
@@ -38,17 +34,22 @@ public class GenerateGroundTiles : MonoBehaviour
         obj.transform.parent = transform;
     }
 
-    private void RandomWalk()
+    private int RandomWalk(int y)
     {
-        int y = 0;
-        for (int x = -width / 2; x < width / 2; x++)
+        float percent = Random.value; // how much the ground will go up/down(60% for +-0, 25% f0r +-1, 10% for +-2, 5% for +-3)
+        int mult = (Random.value > 0.5f) ? 1 : -1; // 50% chance for terrain to go up or down
+        if (percent < 0.05f)
         {
-            SpawnObject(grass, x, y);
+            return y + mult * 3;
         }
-    }
-
-    private int RandomPartOfRandomWalk()
-    {
+        else if (percent < (0.05f + 0.1f))
+        {
+            return y + mult * 2;
+        }
+        else if (percent < ((0.05f + 0.1f) + 0.25f))
+        {
+            return y + mult * 1;
+        }
         return 0;
     }
 }
