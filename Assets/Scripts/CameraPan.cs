@@ -22,4 +22,9 @@ public class CameraPan : MonoBehaviour
             Camera.main.transform.position += dir;
         }
     }
+
+    public void SetPos(float x, float y)
+    {
+        Camera.main.transform.position = new Vector3(x, y, -10);
+    }
 }

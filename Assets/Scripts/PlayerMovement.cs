@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject cam;
     private bool climb;
     private bool side;
     // Start is called before the first frame update
@@ -35,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
             bob.y = --y;
         }
         transform.position = bob;
+        CameraPan cp = (CameraPan)cam.GetComponent(typeof(CameraPan));
+        cp.SetPos(bob.x, bob.y);
     }
 
     public void Left()
