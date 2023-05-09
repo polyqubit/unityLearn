@@ -23,6 +23,8 @@ public class GenerateGroundTiles : MonoBehaviour
                 SpawnObject(dirt, x, i);
             }
         }
+        PlayerMovement a = (PlayerMovement) ant.GetComponent(typeof(PlayerMovement));
+        a.Place();
     }
 
     // Update is called once per frame

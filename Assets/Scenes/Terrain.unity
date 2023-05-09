@@ -428,7 +428,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3077162021674837487, guid: 08d84f8bf3801c846af3b78eaa1f9fd1, type: 3}
   m_PrefabInstance: {fileID: 771598920}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1496947281}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7390fac4be12244a23e126d5823317, type: 3}
@@ -672,9 +672,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dirt: {fileID: 5945283409270856463, guid: 4042205cb2030e64d91abdb3d098de41, type: 3}
   grass: {fileID: 5945283409270856463, guid: 3e60e45a2c306bb42b1c2a90203a963e, type: 3}
-  ant: {fileID: 3077162021674837480, guid: 08d84f8bf3801c846af3b78eaa1f9fd1, type: 3}
+  ant: {fileID: 1496947281}
   width: 100
-  height: 10
+  height: 30
 --- !u!1 &957827530
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +911,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105716548}
   m_CullTransparentMesh: 1
+--- !u!1 &1496947281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3077162021674837480, guid: 08d84f8bf3801c846af3b78eaa1f9fd1, type: 3}
+  m_PrefabInstance: {fileID: 771598920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1915093985
 GameObject:
   m_ObjectHideFlags: 0

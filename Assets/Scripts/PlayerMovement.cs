@@ -9,14 +9,32 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(0, 1f, 0);
-        climb = false;
-        side = false;
+        transform.position = new Vector3(0, -10000, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void Place()
+    {
+        int y = 10;
+        int c = 0;
+        Vector3 bob = new Vector3(0, y, 0);
+        climb = false;
+        side = false;
+        while ((c < 50) && Physics2D.OverlapCircle(new Vector2(0, y + 1), 0.2f, LayerMask.GetMask("ground")) is not null)
+        {
+            c++;
+            bob.y = ++y;
+        }
+        while ((c < 50) && Physics2D.OverlapCircle(new Vector2(0, y - 1), 0.2f, LayerMask.GetMask("ground")) is null)
+        {
+            c++;
+            bob.y = --y;
+        }
+        transform.position = bob;
     }
 
     public void Left()
