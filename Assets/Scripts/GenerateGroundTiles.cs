@@ -16,7 +16,7 @@ public class GenerateGroundTiles : MonoBehaviour
         int y = 0;
         for (int x = -width / 2; x < width / 2; x++)
         {
-            y = RandomWalk(y);
+            y += RandomWalk();
             SpawnObject(grass, x, y);
         }
     }
@@ -34,21 +34,21 @@ public class GenerateGroundTiles : MonoBehaviour
         obj.transform.parent = transform;
     }
 
-    private int RandomWalk(int y)
+    private int RandomWalk()
     {
-        float percent = Random.value; // how much the ground will go up/down(60% for +-0, 25% f0r +-1, 10% for +-2, 5% for +-3)
+        float percent = Random.value;
         int mult = (Random.value > 0.5f) ? 1 : -1; // 50% chance for terrain to go up or down
-        if (percent < 0.05f)
+        if (percent < 0.02f)
         {
-            return y + mult * 3;
+            return mult * 3;
         }
-        else if (percent < (0.05f + 0.1f))
+        else if (percent < (0.02f + 0.07f))
         {
-            return y + mult * 2;
+            return mult * 2;
         }
-        else if (percent < ((0.05f + 0.1f) + 0.25f))
+        else if (percent < ((0.02f + 0.1f) + 0.25f))
         {
-            return y + mult * 1;
+            return mult * 1;
         }
         return 0;
     }
