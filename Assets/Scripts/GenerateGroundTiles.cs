@@ -18,6 +18,10 @@ public class GenerateGroundTiles : MonoBehaviour
         {
             y += RandomWalk();
             SpawnObject(grass, x, y);
+            for(int i = y - 1; i > -height; i--)
+            {
+                SpawnObject(dirt, x, i);
+            }
         }
     }
 
