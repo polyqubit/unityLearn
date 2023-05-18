@@ -14,20 +14,15 @@ public class ToggleMenu : MonoBehaviour
 
     public void ToggleButton()
     {
-        if (!active)
+        GameObject b = transform.Find("digbutton").gameObject;
+        if (!active) //180,-40
         {
-            GameObject b = Instantiate(button);
-            b.transform.SetParent(transform);
-            b.GetComponent<RectTransform>().anchoredPosition3D = new Vector2(260, -40);
-            b.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
-            b.GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
-            b.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-            b.GetComponent<RectTransform>().localScale = new Vector2(2, 2);
+            b.GetComponent<RectTransform>().anchoredPosition3D = new Vector2(180, -40);
             active = true;
         }
         else 
         {
-            Destroy(transform.Find("digbutton(Clone)").gameObject);
+            b.GetComponent<RectTransform>().anchoredPosition3D = new Vector2(-100, 100);
             active = false;
         }
         
