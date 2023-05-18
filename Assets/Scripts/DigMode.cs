@@ -14,6 +14,7 @@ public class DigMode : MonoBehaviour
     public void ToggleDigMode()
     {
         dmode = !dmode;
+        Debug.Log("dmode:" + dmode);
     }
 
     void DisplayBreakableTiles()
