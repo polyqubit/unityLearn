@@ -28,7 +28,7 @@ public class DigMode : MonoBehaviour
         //    Debug.Log(right);
         //}
         locate = Instantiate(locate, transform);
-        locate.transform.localPosition = new Vector2(0, y - 1);
+        locate.transform.localPosition = new Vector2(0, y);
     }
 
     // Update is called once per frame
@@ -36,8 +36,8 @@ public class DigMode : MonoBehaviour
     {
         if (dmode)
         {
-            y = -(transform.position.y % 1);
-            locate.transform.localPosition = new Vector2(0, y - 1);
+            y = (Mathf.Abs(transform.position.y) % 1);
+            locate.transform.localPosition = new Vector2(0, y);
         }
     }
 }
