@@ -36,7 +36,7 @@ public class DigMode : MonoBehaviour
     {
         if (dmode)
         {
-            y = (Mathf.Abs(transform.position.y) % 1);
+            y = Mathf.Abs(transform.position.y) % 1;
             locate.transform.localPosition = new Vector2(0, y);
         }
     }
