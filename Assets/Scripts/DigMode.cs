@@ -27,7 +27,11 @@ public class DigMode : MonoBehaviour
         //{
         //    Debug.Log(right);
         //}
-        Instantiate(locate, transform); //.transform.position = new Vector2(-1, 0);
+        Instantiate(locate, transform).transform.localPosition = new Vector2(-1, 0);
+        Instantiate(locate, transform).transform.localPosition = new Vector2(1, 0);
+        Instantiate(locate, transform).transform.localPosition = new Vector2(-1, -1);
+        Instantiate(locate, transform).transform.localPosition = new Vector2(1, -1);
+        Instantiate(locate, transform).transform.localPosition = new Vector2(0, -1);
     }
 
     // Update is called once per frame
