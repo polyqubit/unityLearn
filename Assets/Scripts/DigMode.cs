@@ -6,6 +6,7 @@ public class DigMode : MonoBehaviour
 {
     public GameObject locate;
     private bool dmode = false;
+    private float y = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,8 +15,7 @@ public class DigMode : MonoBehaviour
 
     public void ToggleDigMode()
     {
-        //dmode = !dmode;
-        //Debug.Log("dmode:" + dmode);
+        dmode = !dmode;
         DisplayBreakableTiles();
     }
 
@@ -27,16 +27,17 @@ public class DigMode : MonoBehaviour
         //{
         //    Debug.Log(right);
         //}
-        Instantiate(locate, transform).transform.localPosition = new Vector2(-1, 0);
-        Instantiate(locate, transform).transform.localPosition = new Vector2(1, 0);
-        Instantiate(locate, transform).transform.localPosition = new Vector2(-1, -1);
-        Instantiate(locate, transform).transform.localPosition = new Vector2(1, -1);
-        Instantiate(locate, transform).transform.localPosition = new Vector2(0, -1);
+        locate = Instantiate(locate, transform);
+        locate.transform.localPosition = new Vector2(0, y - 1);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (dmode)
+        {
+            y = -(transform.position.y % 1);
+            locate.transform.localPosition = new Vector2(0, y - 1);
+        }
     }
 }
