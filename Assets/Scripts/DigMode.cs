@@ -10,7 +10,8 @@ public class DigMode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        locate = Instantiate(locate, transform);
+        locate.transform.localPosition = new Vector2(0, 1000);
     }
 
     public void ToggleDigMode()
@@ -27,8 +28,15 @@ public class DigMode : MonoBehaviour
         //{
         //    Debug.Log(right);
         //}
-        locate = Instantiate(locate, transform);
-        locate.transform.localPosition = new Vector2(0, y);
+        if (dmode)
+        {
+            locate.transform.localPosition = new Vector2(0, y);
+        }
+        else
+        {
+            //Destroy(transform.Find("locator(Clone)").gameObject);
+            locate.transform.localPosition = new Vector2(0, y + 1000);
+        }
     }
 
     // Update is called once per frame
