@@ -5,6 +5,8 @@ using UnityEngine;
 public class DigMode : MonoBehaviour
 {
     public GameObject locate;
+    public GameObject cam;
+    private CameraPan cp;
     private bool dmode = false;
     private float y = 0;
     // Start is called before the first frame update
@@ -12,12 +14,16 @@ public class DigMode : MonoBehaviour
     {
         locate = Instantiate(locate, transform);
         locate.transform.localPosition = new Vector2(0, 1000);
+        cp = (CameraPan)cam.GetComponent(typeof(CameraPan));
     }
 
     public void ToggleDigMode()
     {
+        Vector2 bob = transform.position;
         dmode = !dmode;
         DisplayBreakableTiles();
+        cp.SetPos(bob.x, bob.y);
+        cp.zoom(dmode ? 3 : 7);
     }
 
     void DisplayBreakableTiles()

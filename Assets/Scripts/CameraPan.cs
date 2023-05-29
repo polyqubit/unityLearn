@@ -27,4 +27,9 @@ public class CameraPan : MonoBehaviour
     {
         Camera.main.transform.position = new Vector3(x, y, -10);
     }
+
+    public void zoom(float scale)
+    {
+        Camera.main.orthographicSize = scale;
+    }
 }
