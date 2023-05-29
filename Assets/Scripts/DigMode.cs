@@ -48,11 +48,6 @@ public class DigMode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dmode)
-        {
-            y = Mathf.Abs(transform.position.y) % 1;
-            locate.transform.localPosition = new Vector2(0, y);
-        }
         if (dmode && Input.GetMouseButton(0))
         {
             Vector3 bob = transform.position;
@@ -62,6 +57,12 @@ public class DigMode : MonoBehaviour
                 bob.y--;
             }
             transform.position = bob;
+        }
+        if (dmode)
+        {
+            y = Mathf.Abs(transform.position.y) % 1;
+            locate.transform.localPosition = new Vector2(0, y);
+            cp.SetPos(transform.position.x, transform.position.y);
         }
     }
 
