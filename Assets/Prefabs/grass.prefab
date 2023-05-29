@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4259914113256881240}
   - component: {fileID: 7581994090872700966}
+  - component: {fileID: 6704840028721779892}
   m_Layer: 3
   m_Name: collision
   m_TagString: ground
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4960440595897118087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3707829953537022528}
@@ -58,6 +59,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6704840028721779892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4960440595897118087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd89085fb8694d458b045cd6129787c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5945283409270856463
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2798745584206046154}
   - component: {fileID: 6085341855065842121}
+  - component: {fileID: 1564598290117134956}
   m_Layer: 3
   m_Name: center
   m_TagString: Untagged
@@ -241,3 +255,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1564598290117134956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538716988618343137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd89085fb8694d458b045cd6129787c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
