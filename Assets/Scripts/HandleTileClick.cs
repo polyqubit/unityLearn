@@ -22,7 +22,7 @@ public class HandleTileClick : MonoBehaviour
         Vector2 pos = transform.position;
         if (Physics2D.OverlapCircle(new Vector2(pos.x, pos.y), 0.2f, LayerMask.GetMask("Ignore Raycast")) is not null)
         {
-            Debug.Log(transform.position);
+            Destroy(transform.parent.gameObject);
         }
     }
 }

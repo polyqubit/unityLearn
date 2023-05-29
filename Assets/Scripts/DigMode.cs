@@ -47,5 +47,15 @@ public class DigMode : MonoBehaviour
             y = Mathf.Abs(transform.position.y) % 1;
             locate.transform.localPosition = new Vector2(0, y);
         }
+        if (dmode && Input.GetMouseButton(0))
+        {
+            Vector3 bob = transform.position;
+            while (Physics2D.OverlapCircle(new Vector2(bob.x, bob.y - 1), 0.2f, LayerMask.GetMask("ground")) is null)
+            {
+                Debug.Log("going: " + bob.y);
+                bob.y--;
+            }
+            transform.position = bob;
+        }
     }
 }
