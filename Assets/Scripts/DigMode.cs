@@ -51,12 +51,14 @@ public class DigMode : MonoBehaviour
         if (dmode && Input.GetMouseButton(0))
         {
             Vector3 bob = transform.position;
-            while (Physics2D.OverlapCircle(new Vector2(bob.x, bob.y - 1), 0.2f, LayerMask.GetMask("ground")) is null)
+            int c = 0;
+            while ((c < 100) && Physics2D.OverlapCircle(new Vector2(bob.x, bob.y - 1), 0.2f, LayerMask.GetMask("ground")) is null)
             {
                 Debug.Log("going: " + bob.y);
                 bob.y--;
+                c++;
             }
-            transform.position = bob;
+            transform.position = (c < 100) ? bob : transform.position;
         }
         if (dmode)
         {
