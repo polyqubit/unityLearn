@@ -1355,6 +1355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locate: {fileID: 6499178141093422790, guid: 27bc30aa913e32c43b0e2c5d33673c70, type: 3}
+  cam: {fileID: 519420028}
 --- !u!1 &1915093985
 GameObject:
   m_ObjectHideFlags: 0

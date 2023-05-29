@@ -54,6 +54,12 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 pos = transform.position;
         int direction = right ? 1 : -1;
+        DigMode dm = (DigMode)transform.GetComponent(typeof(DigMode));
+        if (dm.IsDig() && (Physics2D.OverlapCircle(new Vector2(pos.x + direction, pos.y), 0.2f, LayerMask.GetMask("ground")) is not null))
+        {
+            Destroy(Physics2D.OverlapCircle(new Vector2(pos.x + direction, pos.y), 0.2f, LayerMask.GetMask("ground")).transform.parent.gameObject);
+            transform.position = new Vector3(pos.x + direction, pos.y);
+        }
         if (climb) {
             if (side)
             {

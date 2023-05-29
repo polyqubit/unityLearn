@@ -23,7 +23,7 @@ public class DigMode : MonoBehaviour
         dmode = !dmode;
         DisplayBreakableTiles();
         cp.SetPos(bob.x, bob.y);
-        cp.zoom(dmode ? 3 : 7);
+        cp.zoom(dmode ? 4 : 7);
     }
 
     void DisplayBreakableTiles()
@@ -63,5 +63,10 @@ public class DigMode : MonoBehaviour
             }
             transform.position = bob;
         }
+    }
+
+    public bool IsDig()
+    {
+        return dmode;
     }
 }
