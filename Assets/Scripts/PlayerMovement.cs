@@ -110,10 +110,10 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        else if (Physics2D.OverlapCircle(new Vector2(pos.x + direction, pos.y), 0.2f, LayerMask.GetMask("ground")) is not null) //b, same y
+        else if ((Physics2D.OverlapCircle(new Vector2(pos.x + direction, pos.y), 0.2f, LayerMask.GetMask("ground")) is not null) //b, same y
+                && (Physics2D.OverlapCircle(new Vector2(pos.x, pos.y + 1), 0.2f, LayerMask.GetMask("ground")) is null))
         {
-            if (Physics2D.OverlapCircle(new Vector2(pos.x + direction, pos.y + 1), 0.2f, LayerMask.GetMask("ground")) is not null
-                && Physics2D.OverlapCircle(new Vector2(pos.x, pos.y + 1), 0.2f, LayerMask.GetMask("ground")) is not null) //a, y+1
+            if (Physics2D.OverlapCircle(new Vector2(pos.x + direction, pos.y + 1), 0.2f, LayerMask.GetMask("ground")) is not null) //a, y+1
             {
                 climb = true;
                 side = right;
