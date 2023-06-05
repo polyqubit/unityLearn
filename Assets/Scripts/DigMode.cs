@@ -8,6 +8,7 @@ public class DigMode : MonoBehaviour
     public GameObject cam;
     private CameraPan cp;
     private bool dmode = false;
+    private bool f = true;
     private float y = 0;
     // Start is called before the first frame update
     void Start()
@@ -19,11 +20,34 @@ public class DigMode : MonoBehaviour
 
     public void ToggleDigMode()
     {
+        if (f)
+        {
+            GameObject.Find("/Canvas/hi").GetComponent<TMPro.TextMeshProUGUI>().text = 
+                "use left/right arrows to delete objects to left and right\n" +
+                "note that the ant will not enable climbing while in dig mode\n" +
+                "additionally 3 blocks are highlighted under the ant\n" +
+                "clicking on these willbreak those blocks\n" +
+                "the ant will fall if the block is directly under it\n" +
+                "digging to the bottom of the world will result in getting stuck\n" +
+                "additionally, there is a bug where the ant will tunnel unexpectedly\n" +
+                "this bug occurs outside of digmode when moving into a wall\n" +
+                "however, in some situations this is the only way to exit a hole";
+            f = false;
+            StartCoroutine(wait());
+        }
         Vector2 bob = transform.position;
         dmode = !dmode;
         DisplayBreakableTiles();
         cp.SetPos(bob.x, bob.y);
         cp.zoom(dmode ? 4 : 7);
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(2);
+        GameObject.Find("/Canvas/hi").GetComponent<TMPro.TextMeshProUGUI>().text = "did you get all that?";
+        yield return new WaitForSeconds(5);
+        GameObject.Find("/Canvas/hi").GetComponent<TMPro.TextMeshProUGUI>().text = "";
     }
 
     void DisplayBreakableTiles()
