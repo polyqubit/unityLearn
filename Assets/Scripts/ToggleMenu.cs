@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ToggleMenu : MonoBehaviour
 {
-    public GameObject button;
     private bool active = false;
+    private bool first = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +15,11 @@ public class ToggleMenu : MonoBehaviour
     public void ToggleButton()
     {
         GameObject b = transform.Find("digbutton").gameObject;
+        if(first)
+        {
+            Destroy(transform.Find("menu").transform.Find("bob").gameObject);
+            first = false;
+        }
         if (!active) //180,-40
         {
             b.GetComponent<RectTransform>().anchoredPosition3D = new Vector2(180, -40);
